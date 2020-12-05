@@ -167,7 +167,7 @@
         $("#sel2").html(``)
        if(elem.value == "A"){
            cal_val = "€2.750,-"
-           document.getElementById("radio1").checked = true;
+           document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
            label.innerText = "Type A: Enkel kozijn, enkel draairaam"
@@ -176,7 +176,7 @@
        }
        else if(elem.value == "B"){
            cal_val = "€3.250,-"
-           document.getElementById("radio1").checked = true;
+           document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
            label.innerText = "Type B: Enkel kozijn, enkel draairaam"
@@ -188,7 +188,7 @@
        }
        else if(elem.value == "C"){
            cal_val = "€3.690,-"
-           document.getElementById("radio1").checked = true;
+           document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
            label.innerText = "Type C: Enkel kozijn, dubbel draairaam"
@@ -200,7 +200,7 @@
        }
        else if(elem.value == "D"){
            cal_val = "€4.970,-"
-           document.getElementById("radio1").checked = true;
+           document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
            label.innerText="Type D: Dubbel kozijn, dubbel draairaam"
@@ -215,7 +215,7 @@
        }
        else{
            cal_val = "€4.950,-"
-           document.getElementById("radio1").checked = true;
+           document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
            label.innerText = 'Type E: Dubbel kozijn, 3x draairaam'
@@ -230,17 +230,17 @@
          $("#sel2").append(`<option value="5.60-5.90">5.60-5.90m</option>`)
        }
     }
-//     $('input[type=radio][name=Radio]').change(function() {
-//      var val1 = $(this).attr("id")
-//      if(val1 == "Houtlook"){
+    $('input[type=radio][name=Radio]').change(function() {
+     var val1 = $(this).attr("id")
+     if(val1 == "Houtlook"){
+        
+     }
+     else if(val1 == "Houtlook"){
+     }
+     else{
 
-//      }
-//      else if(val1 == "Houtlook"){
-//      }
-//      else{
-
-//      }
-// })
+     }
+})
 </script>
 
 
