@@ -1,4 +1,4 @@
-/beneluxapp/static/images
+
 venv
 *.pyc 
 *.sqlite3
