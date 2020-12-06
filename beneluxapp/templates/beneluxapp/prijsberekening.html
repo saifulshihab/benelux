@@ -3,245 +3,418 @@
 {% load static %}
 <div class="container p-5 mt-3">
     <h1 class="text-center font-weight-bold">Prijscalculator</h1>
-<form class="mt-3">
- <div class="row">
-     <div class="col-md-6">
-        <label for="exampleInputPassword1" id="img_label">Type A: Enkel kozijn, enkel draairaam</label><br>
-        <img id="img" src="/static/images/1.gif">
-     </div>
- </div>
- <div class="row mt-3">
-   <div class="col-md-6">
-    <div class="form-group">
-        <label for="exampleInputPassword1">Richtprijs type <span id="label">A </span></label>
-        <input type="text" class="form-control" value="€2.750,-" id="calculation" readonly>
-        <small id="emailHelp" class="form-text text-muted">Inclusief BTW en plaatsing</small>
-      </div>
-   </div>
- </div>
-<div class="row">
-  <div class="col-md-6">
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Kies uw type dakkapel</label>
-        <select class="form-control" id="exampleFormControlSelect1" onchange="change_elem(this)">
-          <option value="A">Type A</option>
-          <option value="B">Type B</option>
-          <option value="C">Type C</option>
-          <option value="D">Type D</option>
-          <option value="E">Type E</option>
-        </select>
-      </div>
-  </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-      <div class="form-group">
-          <label for="exampleFormControlSelect1">Breedte dakkapel</label>
-          <select class="form-control"  id="sel2">
-            <option value="1.00-1.20">1.00 - 1.20m</option>
-          </select>
+    <div class="row">
+      <div class="col-12">
+        <div class="price_calc p-3">  
+          <h1 class="font-weight-bold">Dakkapel kosten berekenen</h1>
+          <h4 class="font-weight-bold">Je krijgt meteen een prijsindicatie te zien</h4>
+          <h2 class="font-weight-bold">Kies een type dakkapel</h2>
+
+          <div class="mt-5 input_item_wraps">
+            <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Type dakkapel</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area custom_select">
+                      <select id="demo-htmlselect">
+                        <option value="100" data-imagesrc="{% static '/images/prize/Dakkapel-A.jpg' %}" selected="selected"
+                        data-description="Dakkapel één draaikiepraam. Min 1,00 m - max 1,50 m">Type A</option>
+                        <option value="150" data-imagesrc="{% static '/images/prize/Dakkapel-B.jpg' %}"
+                            data-description="Dakkapel één draaikiepraam. Min 1,50 m - max 3,00 m">Type B</option>
+                        <option value="500" data-imagesrc="{% static '/images/prize/Dakkapel-C.jpg' %}"
+                            data-description="Dakkapel twee draaikiepramen. Min 3,00 m - max 5,00 m">Type C - Meest gekozen</option>
+                        <option value="550" data-imagesrc="{% static '/images/prize/Dakkapel-D.jpg' %}"
+                            data-description="Dakkapel twee draaikiepramen. Min 3,50 m - max 5,50 m">Type D</option>
+                        <option value="590" data-imagesrc="{% static '/images/prize/Dakkapel-E.jpg' %}"
+                            data-description="Dakkapel twee draaikiepramen. Min 3,50 m - max 5,90 m">Type E</option>                        
+                      </select>
+                    </div>
+                  </div>
+                </div>                            
+              </div>            
+            
+            
+            
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Breedte van het dakkapel (Type C)</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <input class="cutom_range" id="cutom_range1" type="range" />       
+                      <span class="toggle_text">
+                        Prijs per meter € 674,00 incl btw
+                      </span>               
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Wil je elektrische rolluiken?</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check" value="235">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Prijs per strekkende meter € 235,- incl btw. Plus treffen voorbereidingen.
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Voorbereidingen treffen voor rolluiken.</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check2" >
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Prijs afhankelijk van type dakkapel. € 210,- / € 350,- incl. btw
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Hoeveel graden is de dakhelling?*</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area custom_select">
+                      <select id="demo-htmlselect2">                       
+                        <option selected="selected" value="0" data-imagesrc="{% static '/images/prize/Kleiner-dan-40-graden.png' %}"
+                        data-description="Vlakke dakhelling,kleiner dan 40 graden.">Kleiner dan 40°</option>
+                        <option value="1" data-imagesrc="{% static '/images/prize/Dakhelling-tussen-40-en-45-graden.png' %}"
+                            data-description="Standaard dakhelling, tussen 40 - 45 graden.">Tussen 40-45°</option>
+                        <option value="1" data-imagesrc="{% static '/images/prize/Dakhelling-groter-dan-45-graden.png' %}"
+                            data-description="Steile dakhelling, meer dan 45 graden.">Groter dan 45°</option>                        
+                      </select>
+                    </div>
+                  </div>
+                </div>                            
+              </div>    
+         
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Neem contact op voor dakkapellen van minder dan 36º.
+                      Dicht paneel in kozijn (ivm scheiding ruimtes).</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check3">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Prijs per paneel € 146,42 incl btw
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+               
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Materiaal keuze zijkanten dakkapel.</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area custom_select">
+                      <select id="demo-htmlselect3">
+                        
+                        <option value="0" selected="selected"
+                        data-description="Standaard volkern plaat in de kleur wit of grijs">Standard</option>
+                        <option value="24821" 
+                            data-description="Beide zijkanten van Kunststof Rabatdelen standaard kleuren. € 248,21 incl btw">Kunststof Rabatdelen</option>
+                        <option value="65314"  
+                            data-description="Beide zijkanten van houten Rabatdelen. € 653,14 incl btw">Hout Rabatdelen</option>                                           
+                      </select>
+                    </div>
+                  </div>
+                </div>                            
+              </div>        
+              
+                 
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Voorzien van extra draaikiepraam
+                    </label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <input class="cutom_range" id="cutom_range2" type="range" />
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+              
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Wil je een andere kleur dan wit?</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check4">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Meerprijs voor een andere kleur € 145.35 incl. btw
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+
+              
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Upgrade RC waarde van 3.5 naar 6.0?</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check5">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Gemiddelde prijs upgrade € 657,71 incl. btw
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+              
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Wil je ventilatieroosters?
+                    </label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check6">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Afhankelijk van type: € 60,- tot € 100,- p/st. incl. btw
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Heb je een sporenkap?
+                    </label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check7">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Meerprijs montage dakkapel op sporenkap € 355,17 incl btw
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>                      
+
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Plaatsen incl levering op locatie.</label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area custom_select">
+                      <select id="demo-htmlselect4">                        
+                        <option value="0" selected="selected" 
+                        data-description="Plaatsen en leveren is € 1000,- voor uw dakkapel. Binnen één dag klaar.">Inclusief plaatsen en leveren</option>
+                        <option value="24821" 
+                            data-description="Beide zijkanten van Kunststof Rabatdelen standaard kleuren. € 248,21 incl btw">Kunststof Rabatdelen</option>
+                        <option value="1000"  
+                            data-description="Plaatsen en leveren is € 1000,- voor uw dakkapel. Binnen één dag klaar.">Hout Rabatdelen</option>                                           
+                      </select>
+                    </div>
+                  </div>
+                </div>                            
+              </div>      
+              
+              <div class="input_item">
+                <div class="row">
+                  <div class="col-3">
+                    <label>Wil je het bouwafval laten afvoeren?
+                    </label>
+                  </div>
+                  <div class="col-9">
+                    <div class="input_area">
+                      <label class="switch">
+                        <input type="checkbox" id="custom_check8">
+                        <span class="slider round"></span>
+                      </label>
+                      <span class="toggle_text">
+                        Prijs afvoeren bouwafval € 245,- incl btw
+                      </span>
+                    </div>
+                  </div>
+                </div>                            
+              </div>
+
+              <div class="result_box">
+                <p>Bedankt voor het invullen. Is alles duidelijk? Stuur jouw berekening in en wij nemen binnen 24 uur contact met je op.</p>
+                <div class="calc_result">
+                  <p>
+                    Totaal
+                  </p>
+                  <span style="font: 1.5rem;">$</span>
+                  <div class="calc_result_number">0</div>
+                </div>
+                <button class="calculate_btn">Calculate</button>
+              </div>
+
+            </div>
+          </div>
         </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-        <label for="exampleFormControlSelect1">Uitvoering buitenkant</label>
-        <div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio" id="Kunststof" value="option1" checked>
-            <label class="form-check-label" for="Kunststof">Kunststof</label>
-          </div><div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio" id="Houtlook" value="option1" >
-            <label class="form-check-label" for="Houtlook">Houtlook</label>
-          </div><div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio" id="Hout" value="option1" >
-            <label class="form-check-label" for="Hout">Hout</label>
-          </div>
-          <small id="emailHelp" class="form-text text-muted">Kunststof dakkapellen van Trespa | Houten dakkapellen van Meranti, multiplex, rabat of keralit</small>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-6">
-        <label for="exampleFormControlSelect1">Uitvoering raamkozijnen</label>
-        <div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio1" id="radio4" value="option2" checked>
-            <label class="form-check-label" for="radio4">Kunststof</label>
-          </div><div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio1" id="radio5" value="option2" >
-            <label class="form-check-label" for="radio5">Houtlook</label>
-          </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-6">
-      <div class="form-group">
-          <label for="exampleFormControlSelect1">Locatie dakkapel</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option value="Achtergevel">Achtergevel</option>
-            <option value="Voorgevel">Voorgevel</option>
-            <option value="Zijgevel">Zijgevel</option>
-          </select>
-        </div>
-    </div>
-  </div>
-<div class="row">
-   <div class="col-md-6">
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Dakhelling in graden</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="40-45">40-45 (standaard)</option>
-          <option value="39">39</option>
-          <option value="38">38</option>
-          <option value="37">37</option>
-          <option value="36">36</option>
-          <option value="35">35</option>
-          <option value="34">34</option>
-          <option value="33">33</option>
-          <option value="32">32</option>
-          <option value="31">31</option>
-          <option value="30">30</option>
-        </select>
       </div>
-   </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-     <div class="form-group">
-         <label for="exampleFormControlSelect1">Ventilatieroosters</label>
-         <select class="form-control" id="exampleFormControlSelect1">
-           <option value="0">0</option>
-           <option value="1">1</option>
-           <option value="2">2</option>
-           <option value="3">3</option>
-           <option value="4">4</option>
-         </select>
-       </div>
     </div>
  </div>
- <div class="row">
-     <div class="col-md-6">
-        <label for="exampleFormControlSelect1">Opties toevoegen</label>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="check1">
-            <label class="form-check-label" for="check1">
-                Pannendak i.p.v. plat dak
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="check2">
-            <label class="form-check-label" for="check2">
-                Bouwafval afvoeren
-            </label>
-          </div>
-     </div>
- </div>
- <div class="row mt-3">
-    <div class="col-md-6">
-     <div class="form-group">
-         <label for="exampleFormControlSelect1">Gewenste periode van plaatsing</label>
-         <select class="form-control" id="exampleFormControlSelect1">
-           <option value="Geen voorkeur">Geen voorkeur</option>
-           <option value="Januari">Januari</option>
-           <option value="Februari">Februari</option>
-           <option value="Maart">Maart</option>
-           <option value="April">April</option>
-           <option value="Mei">Mei</option>
-           <option value="Juni">Juni</option>
-           <option value="Juli">Juli</option>
-           <option value="September">September</option>
-           <option value="Oktober">Oktober</option>
-           <option value="November">November</option>
-           <option value="December">December</option>
-         </select>
-       </div>
-    </div>
- </div>
-</form>
-</div>
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script>
-          var cal_val;
-    function change_elem(elem){
-        document.getElementById("label").innerText = elem.value;
-        var label = document.getElementById("img_label")
-        var image = document.getElementById("img")
-        $("#sel2").html(``)
-       if(elem.value == "A"){
-           cal_val = "€2.750,-"
-           document.getElementById("Kunststof").checked = true;
-           document.getElementById("radio4").checked = true;
-           document.getElementById("calculation").value = cal_val;
-           label.innerText = "Type A: Enkel kozijn, enkel draairaam"
-        image.src = '/static/images/1.gif'
-        $("#sel2").append(`<option value="1.00-1.20">1.00 - 1.20m</option>`)
-       }
-       else if(elem.value == "B"){
-           cal_val = "€3.250,-"
-           document.getElementById("Kunststof").checked = true;
-           document.getElementById("radio4").checked = true;
-           document.getElementById("calculation").value = cal_val;
-           label.innerText = "Type B: Enkel kozijn, enkel draairaam"
-         image.src = '/static/images/2.gif'
-         $("#sel2").append(`<option value="1.50-1.60">1.50 - 1.60m</option>`)
-         $("#sel2").append(`<option value="1.60-1.90">1.60 - 1.90m</option>`)
-         $("#sel2").append(`<option value="1.90-2.10">1.90-2.10m</option>`)
-         $("#sel2").append(`<option value="2.10-2.40m">2.10-2.40m</option>`)
-       }
-       else if(elem.value == "C"){
-           cal_val = "€3.690,-"
-           document.getElementById("Kunststof").checked = true;
-           document.getElementById("radio4").checked = true;
-           document.getElementById("calculation").value = cal_val;
-           label.innerText = "Type C: Enkel kozijn, dubbel draairaam"
-         image.src = '/static/images/3.gif'
-         $("#sel2").append(`<option value="2.50-2.60">2.50-2.60m</option>`)
-         $("#sel2").append(`<option value="2.60-2.90">2.60-2.90m</option>`)
-         $("#sel2").append(`<option value="2.90-3.10">2.90-3.10m</option>`)
-         $("#sel2").append(`<option value="3.10-3.40">3.10-3.40m</option>`)
-       }
-       else if(elem.value == "D"){
-           cal_val = "€4.970,-"
-           document.getElementById("Kunststof").checked = true;
-           document.getElementById("radio4").checked = true;
-           document.getElementById("calculation").value = cal_val;
-           label.innerText="Type D: Dubbel kozijn, dubbel draairaam"
-         image.src = '/static/images/4.gif'
-         $("#sel2").append(`<option value="3.50-3.60">3.50-3.60m</option>`)
-         $("#sel2").append(`<option value="3.60-3.90">3.60-3.90m</option>`)
-         $("#sel2").append(`<option value="4.10-4.40">4.10-4.40m</option>`)
-         $("#sel2").append(`<option value="4.40-4.60">4.40-4.60m</option>`)
-         $("#sel2").append(`<option value="4.60-4.90">4.60-4.90m</option>`)
-         $("#sel2").append(`<option value="4.90-5.10">4.90-5.10m</option>`)
-         $("#sel2").append(`<option value="5.10-5.40">5.10-5.40m</option>`)
-       }
-       else{
-           cal_val = "€4.950,-"
-           document.getElementById("Kunststof").checked = true;
-           document.getElementById("radio4").checked = true;
-           document.getElementById("calculation").value = cal_val;
-           label.innerText = 'Type E: Dubbel kozijn, 3x draairaam'
-           image.src = '/static/images/5.gif'
-           $("#sel2").append(`<option value="4.00-4.10">4.00-4.10m</option>`)
-         $("#sel2").append(`<option value="4.10-4.40">4.10-4.40m</option>`)
-         $("#sel2").append(`<option value="4.40-4.60">4.40-4.60m</option>`)
-         $("#sel2").append(`<option value="4.60-4.90">4.60-4.90m</option>`)
-         $("#sel2").append(`<option value="4.90-5.10">4.90-5.10m</option>`)
-         $("#sel2").append(`<option value="5.10-5.40">5.10-5.40m</option>`)
-         $("#sel2").append(`<option value="5.40-5.60">5.40-5.60m</option>`)
-         $("#sel2").append(`<option value="5.60-5.90">5.60-5.90m</option>`)
-       }
+
+ <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
+<script type="text/javascript">
+
+    const result = document.querySelector(".calc_result_number");
+    const dakkapel_select = document.querySelector("#demo-htmlselect");       
+    const dakkapel_select2 = document.querySelector("#demo-htmlselect2");       
+    const dakkapel_select3 = document.querySelector("#demo-htmlselect3");       
+    const dakkapel_select4 = document.querySelector("#demo-htmlselect4");       
+    const calc_btn = document.querySelector(".calculate_btn");    
+    const cutom_range1 = document.getElementById("cutom_range1");
+    const cutom_range2 = document.getElementById("cutom_range2");
+
+    $('#demo-htmlselect').ddslick();
+    $('#demo-htmlselect2').ddslick();
+    $('#demo-htmlselect3').ddslick();
+    $('#demo-htmlselect4').ddslick();
+
+    $("#custom_check").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(235);
     }
-    $('input[type=radio][name=Radio]').change(function() {
-     var val1 = $(this).attr("id")
-     if(val1 == "Houtlook"){
-        
-     }
-     else if(val1 == "Houtlook"){
-     }
-     else{
+    else {       
+      calculate_price(-235);
+    }
+    });
+    $("#custom_check2").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(210);
+    }
+    else {       
+      calculate_price(-210);
+    }
+    });
+    $("#custom_check3").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(14642);
+    }
+    else {       
+      calculate_price(-14642);
+    }
+    });
+    $("#custom_check4").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(145.35);
+    }
+    else {       
+      calculate_price(-145.35);
+    }
+    });
+    $("#custom_check5").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(65771);
+    }
+    else {       
+      calculate_price(-65771);
+    }
+    });
+    $("#custom_check6").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(60);
+    }
+    else {       
+      calculate_price(-60);
+    }
+    });
+    $("#custom_check7").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(35517);
+    }
+    else {       
+      calculate_price(-35517);
+    }
+    });
+    $("#custom_check8").on('change', function() {
+    if ($(this).is(':checked')) {    
+        calculate_price(245);
+    }
+    else {       
+      calculate_price(-245);
+    }
+    });
 
-     }
-})
+    dakkapel_select.addEventListener("change", () => {
+      const val = dakkapel_select.value;
+      console.log(val);
+      calculate_price(val);  
+    });
+ 
+    function calculate_price (price) {
+      const init_price = result.innerText;      
+      result.innerHTML= `${Number(init_price) + Number(price)}`;
+    }
+
+    calc_btn.addEventListener('click', () => {
+      let init_price;
+      if(result.innerText !== 0){
+          init_price = result.innerText;
+      }else{
+          init_price = 0;
+      }
+      const sum = Number(dakkapel_select.value) + Number(dakkapel_select2.value) + Number(dakkapel_select3.value) + Number(dakkapel_select4.value);
+      
+      result.innerHTML= `${Number(init_price) + Number(sum)}`;
+    })
+    cutom_range1.addEventListener('change', () => {
+      const val = cutom_range1.value;
+      calculate_price(val);
+    })
+    cutom_range2.addEventListener('change', () => {
+      const val = cutom_range2.value;
+      calculate_price(val);
+    })
 </script>
-
 
 {% endblock %}
