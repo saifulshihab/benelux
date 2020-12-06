@@ -1,3 +1,5 @@
 /beneluxapp/static/images
 venv
 *.pyc
+media/projects
+media
