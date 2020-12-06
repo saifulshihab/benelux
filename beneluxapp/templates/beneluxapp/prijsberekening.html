@@ -14,7 +14,7 @@
    <div class="col-md-6">
     <div class="form-group">
         <label for="exampleInputPassword1">Richtprijs type <span id="label">A </span></label>
-        <input type="text" class="form-control" value="€2.750,-" id="calculation" readonly>
+        <input type="text" class="form-control" value="€2.790,-" id="calculation" readonly>
         <small id="emailHelp" class="form-text text-muted">Inclusief BTW en plaatsing</small>
       </div>
    </div>
@@ -37,7 +37,7 @@
     <div class="col-md-6">
       <div class="form-group">
           <label for="exampleFormControlSelect1">Breedte dakkapel</label>
-          <select class="form-control"  id="sel2">
+          <select class="form-control"  id="sel2" onchange="add_sell(this)">
             <option value="1.00-1.20">1.00 - 1.20m</option>
           </select>
         </div>
@@ -47,13 +47,13 @@
     <div class="col-md-6">
         <label for="exampleFormControlSelect1">Uitvoering buitenkant</label>
         <div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio" id="Kunststof" value="option1" checked>
+            <input class="form-check-input position-static" type="radio" name="Radio" id="Kunststof" value="0" checked>
             <label class="form-check-label" for="Kunststof">Kunststof</label>
           </div><div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio" id="Houtlook" value="option1" >
+            <input class="form-check-input position-static" type="radio" name="Radio" id="Houtlook" value="100" >
             <label class="form-check-label" for="Houtlook">Houtlook</label>
           </div><div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio" id="Hout" value="option1" >
+            <input class="form-check-input position-static" type="radio" name="Radio" id="Hout" value="200" >
             <label class="form-check-label" for="Hout">Hout</label>
           </div>
           <small id="emailHelp" class="form-text text-muted">Kunststof dakkapellen van Trespa | Houten dakkapellen van Meranti, multiplex, rabat of keralit</small>
@@ -63,10 +63,10 @@
     <div class="col-md-6">
         <label for="exampleFormControlSelect1">Uitvoering raamkozijnen</label>
         <div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio1" id="radio4" value="option2" checked>
+            <input class="form-check-input position-static" type="radio" name="Radio1" id="radio4" value="0" checked>
             <label class="form-check-label" for="radio4">Kunststof</label>
           </div><div class="form-check">
-            <input class="form-check-input position-static" type="radio" name="Radio1" id="radio5" value="option2" >
+            <input class="form-check-input position-static" type="radio" name="Radio1" id="radio5" value="100" >
             <label class="form-check-label" for="radio5">Houtlook</label>
           </div>
     </div>
@@ -87,18 +87,18 @@
    <div class="col-md-6">
     <div class="form-group">
         <label for="exampleFormControlSelect1">Dakhelling in graden</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="40-45">40-45 (standaard)</option>
-          <option value="39">39</option>
-          <option value="38">38</option>
-          <option value="37">37</option>
-          <option value="36">36</option>
-          <option value="35">35</option>
-          <option value="34">34</option>
-          <option value="33">33</option>
-          <option value="32">32</option>
-          <option value="31">31</option>
-          <option value="30">30</option>
+        <select class="form-control" id="standard" onchange="add_standard(this)">
+          <option value="0">40-45 (standaard)</option>
+          <option value="10">39</option>
+          <option value="20">38</option>
+          <option value="30">37</option>
+          <option value="40">36</option>
+          <option value="50">35</option>
+          <option value="60">34</option>
+          <option value="70">33</option>
+          <option value="80">32</option>
+          <option value="90">31</option>
+          <option value="100">30</option>
         </select>
       </div>
    </div>
@@ -107,7 +107,7 @@
     <div class="col-md-6">
      <div class="form-group">
          <label for="exampleFormControlSelect1">Ventilatieroosters</label>
-         <select class="form-control" id="exampleFormControlSelect1">
+         <select class="form-control" id="roosters" onchange="add_roosters(this)">
            <option value="0">0</option>
            <option value="1">1</option>
            <option value="2">2</option>
@@ -121,13 +121,13 @@
      <div class="col-md-6">
         <label for="exampleFormControlSelect1">Opties toevoegen</label>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="check1">
+            <input class="form-check-input" type="checkbox" value="100" id="check1">
             <label class="form-check-label" for="check1">
                 Pannendak i.p.v. plat dak
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="check2">
+            <input class="form-check-input" type="checkbox" value="200" id="check2">
             <label class="form-check-label" for="check2">
                 Bouwafval afvoeren
             </label>
@@ -159,88 +159,312 @@
 </div>
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script>
-          var cal_val;
+          var cal_val="€2.750,-";
+          var num;
+          cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        console.log(num)
+        console.log(1)
     function change_elem(elem){
         document.getElementById("label").innerText = elem.value;
         var label = document.getElementById("img_label")
         var image = document.getElementById("img")
         $("#sel2").html(``)
        if(elem.value == "A"){
-           cal_val = "€2.750,-"
+           cal_val = "€2.790,-"
            document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
+           document.getElementById("check1").checked = false
+           document.getElementById("check2").checked = false
+           document.getElementById("roosters").value = "0"
+           document.getElementById("standard").value = "0"
+           cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
            label.innerText = "Type A: Enkel kozijn, enkel draairaam"
         image.src = '/static/images/1.gif'
-        $("#sel2").append(`<option value="1.00-1.20">1.00 - 1.20m</option>`)
+        $("#sel2").append(`<option value="0">1.00 - 1.20m</option>`)
        }
        else if(elem.value == "B"){
-           cal_val = "€3.250,-"
+           cal_val = "€3.290,-"
            document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
+           document.getElementById("check1").checked = false
+           document.getElementById("check2").checked = false
+           document.getElementById("roosters").value = "0"
+           document.getElementById("standard").value = "0"
+           cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
            label.innerText = "Type B: Enkel kozijn, enkel draairaam"
          image.src = '/static/images/2.gif'
-         $("#sel2").append(`<option value="1.50-1.60">1.50 - 1.60m</option>`)
-         $("#sel2").append(`<option value="1.60-1.90">1.60 - 1.90m</option>`)
-         $("#sel2").append(`<option value="1.90-2.10">1.90-2.10m</option>`)
-         $("#sel2").append(`<option value="2.10-2.40m">2.10-2.40m</option>`)
+         $("#sel2").append(`<option value="0">1.50 - 1.60m</option>`)
+         $("#sel2").append(`<option value="1">1.60 - 1.90m</option>`)
+         $("#sel2").append(`<option value="2">1.90-2.10m</option>`)
+         $("#sel2").append(`<option value="3">2.10-2.40m</option>`)
        }
        else if(elem.value == "C"){
-           cal_val = "€3.690,-"
+           cal_val = "€3.730,-"
            document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
+           document.getElementById("check1").checked = false
+           document.getElementById("check2").checked = false
+           document.getElementById("roosters").value = "0"
+           document.getElementById("standard").value = "0"
+           cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
            label.innerText = "Type C: Enkel kozijn, dubbel draairaam"
          image.src = '/static/images/3.gif'
-         $("#sel2").append(`<option value="2.50-2.60">2.50-2.60m</option>`)
-         $("#sel2").append(`<option value="2.60-2.90">2.60-2.90m</option>`)
-         $("#sel2").append(`<option value="2.90-3.10">2.90-3.10m</option>`)
-         $("#sel2").append(`<option value="3.10-3.40">3.10-3.40m</option>`)
+         $("#sel2").append(`<option value="0">2.50-2.60m</option>`)
+         $("#sel2").append(`<option value="4">2.60-2.90m</option>`)
+         $("#sel2").append(`<option value="5">2.90-3.10m</option>`)
+         $("#sel2").append(`<option value="6">3.10-3.40m</option>`)
        }
        else if(elem.value == "D"){
-           cal_val = "€4.970,-"
+           cal_val = "€5.170,-"
            document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
+           document.getElementById("check1").checked = false
+           document.getElementById("check2").checked = false
+           document.getElementById("roosters").value = "0"
+           document.getElementById("standard").value = "0"
+           cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
            label.innerText="Type D: Dubbel kozijn, dubbel draairaam"
          image.src = '/static/images/4.gif'
-         $("#sel2").append(`<option value="3.50-3.60">3.50-3.60m</option>`)
-         $("#sel2").append(`<option value="3.60-3.90">3.60-3.90m</option>`)
-         $("#sel2").append(`<option value="4.10-4.40">4.10-4.40m</option>`)
-         $("#sel2").append(`<option value="4.40-4.60">4.40-4.60m</option>`)
-         $("#sel2").append(`<option value="4.60-4.90">4.60-4.90m</option>`)
-         $("#sel2").append(`<option value="4.90-5.10">4.90-5.10m</option>`)
-         $("#sel2").append(`<option value="5.10-5.40">5.10-5.40m</option>`)
+         $("#sel2").append(`<option value="0">3.50-3.60m</option>`)
+         $("#sel2").append(`<option value="7">3.60-3.90m</option>`)
+         $("#sel2").append(`<option value="8">4.10-4.40m</option>`)
+         $("#sel2").append(`<option value="9">4.40-4.60m</option>`)
+         $("#sel2").append(`<option value="10">4.60-4.90m</option>`)
+         $("#sel2").append(`<option value="11">4.90-5.10m</option>`)
+         $("#sel2").append(`<option value="12">5.10-5.40m</option>`)
        }
        else{
-           cal_val = "€4.950,-"
+           cal_val = "€4.990,-"
            document.getElementById("Kunststof").checked = true;
            document.getElementById("radio4").checked = true;
            document.getElementById("calculation").value = cal_val;
+           document.getElementById("check1").checked = false
+           document.getElementById("check2").checked = false
+           document.getElementById("roosters").value = "0"
+           document.getElementById("standard").value = "0"
+           cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
            label.innerText = 'Type E: Dubbel kozijn, 3x draairaam'
            image.src = '/static/images/5.gif'
-           $("#sel2").append(`<option value="4.00-4.10">4.00-4.10m</option>`)
-         $("#sel2").append(`<option value="4.10-4.40">4.10-4.40m</option>`)
-         $("#sel2").append(`<option value="4.40-4.60">4.40-4.60m</option>`)
-         $("#sel2").append(`<option value="4.60-4.90">4.60-4.90m</option>`)
-         $("#sel2").append(`<option value="4.90-5.10">4.90-5.10m</option>`)
-         $("#sel2").append(`<option value="5.10-5.40">5.10-5.40m</option>`)
-         $("#sel2").append(`<option value="5.40-5.60">5.40-5.60m</option>`)
-         $("#sel2").append(`<option value="5.60-5.90">5.60-5.90m</option>`)
+           $("#sel2").append(`<option value="0">4.00-4.10m</option>`)
+         $("#sel2").append(`<option value="13">4.10-4.40m</option>`)
+         $("#sel2").append(`<option value="14">4.40-4.60m</option>`)
+         $("#sel2").append(`<option value="15">4.60-4.90m</option>`)
+         $("#sel2").append(`<option value="16">4.90-5.10m</option>`)
+         $("#sel2").append(`<option value="17">5.10-5.40m</option>`)
+         $("#sel2").append(`<option value="18">5.40-5.60m</option>`)
+         $("#sel2").append(`<option value="19">5.60-5.90m</option>`)
        }
     }
-    $('input[type=radio][name=Radio]').change(function() {
-     var val1 = $(this).attr("id")
-     if(val1 == "Houtlook"){
-        
-     }
-     else if(val1 == "Houtlook"){
-     }
-     else{
+    
+    
+var previous_sell = 0;
+var previous_roost = 0;
+var previous_stand = 0;
+var previous_radio1 =0;
+var previous_radio2 =0;
+function add_sell(elem){
 
-     }
+    cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(elem.value) - previous_sell;
+        previous_sell = parseInt(elem.value);
+          var temp = Math.floor((num+add) / 1000).toString()
+          var temp1= ((num+add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+      
+}
+function add_roosters(elem){
+    cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(elem.value) - previous_roost;
+        previous_roost = parseInt(elem.value);        
+          var temp = Math.floor((num+add) / 1000).toString()
+          var temp1= ((num+add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
+}
+function add_standard(elem){
+    cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(elem.value) - previous_stand;
+        previous_stand = parseInt(elem.value);         
+         var temp = Math.floor((num+add) / 1000).toString()
+          var temp1= ((num+add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
+}
+
+$('input[type=radio][name=Radio]').change(function() {
+  var item = $(this).val();
+  cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(item) - previous_radio1;
+        previous_radio1 = parseInt(item);         
+         var temp = Math.floor((num+add) / 1000).toString()
+          var temp1= ((num+add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
 })
+
+$('input[type=radio][name=Radio1]').change(function() {
+  var item = $(this).val();
+  cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(item) - previous_radio2;
+        previous_radio2 = parseInt(item);         
+         var temp = Math.floor((num+add) / 1000).toString()
+          var temp1= ((num+add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
+})
+$('#check1').click(function(){
+    if($(this).is(':checked')){
+      var item = $(this).val();
+  cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(item) ;
+         var temp = Math.floor((num+add) / 1000).toString()
+          var temp1= ((num+add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
+
+    } else {
+            var item = $(this).val();
+  cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(item) ;
+         var temp = Math.floor((num-add) / 1000).toString()
+          var temp1= ((num-add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
+    }
+});
+
+$('#check2').click(function(){
+    if($(this).is(':checked')){
+      var item = $(this).val();
+  cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(item) ;
+         var temp = Math.floor((num+add) / 1000).toString()
+          var temp1= ((num+add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
+
+    } else {
+            var item = $(this).val();
+  cal_val = document.getElementById("calculation").value;
+  cal_val= cal_val.split("€")[1]
+         cal_val= cal_val.split(",")[0];
+         cal_val=cal_val.split(".")
+        num = parseInt(cal_val[0] + cal_val[1]);
+        var add = parseInt(item) ;
+         var temp = Math.floor((num-add) / 1000).toString()
+          var temp1= ((num-add) %1000).toString()
+           if(temp1.length ==1){
+             temp1 = "00"+temp1
+           }
+          else if(temp1.length ==2){
+             temp1 = "0"+temp1
+           }
+           document.getElementById("calculation").value = "€"+temp+"."+temp1+",-"
+ 
+    }
+});
 </script>
 
 
