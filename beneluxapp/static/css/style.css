@@ -13387,3 +13387,7 @@ textarea.form-control {
   border: none;
   background: #f8f8f8;
 }
+.project_img {
+  width: 100% !important;
+  
+}
