@@ -11,91 +11,22 @@
 			</div>
 		</div>
 		<div class="row">
+			{% for pro in project_list %}            
 			<div class="col-md-4">
 				<div class="project">
-					<a href="{% static 'images/dak5.jpg' %}" class="img image-popup d-flex align-items-center"
-						style="background-image: url(/static/images/dak5.jpg);">
+					<a href="{{ pro.p_image.url }}" class="img image-popup d-flex align-items-center"
+						style="background-image:url({{pro.p_image.url}}); ">
 						<div class="icon d-flex align-items-center justify-content-center mb-5"><span
-								class="fa fa-plus"></span></div>
+							class="fa fa-plus"></span></div>
 					</a>
 					<div class="text">
 						<span class="subheading">Dakkappel</span>
-						<h3>Soort dakkappel</h3>
-						<p><span class="fa fa-map-marker mr-1"></span> Tilburg</p>
+						<h3>{{ pro.title }}</h3>
+						<p><span class="fa fa-map-marker mr-1"></span> {{ pro.location }}</p>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="project">
-					<a href="{% static 'images/dak5.jpg' %}" class="img image-popup d-flex align-items-center"
-						style="background-image: url(/static/images/dak5.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center mb-5"><span
-								class="fa fa-plus"></span></div>
-					</a>
-					<div class="text">
-						<span class="subheading">Dakkappel</span>
-						<h3>Soort dakkappel</h3>
-						<p><span class="fa fa-map-marker mr-1"></span>Breda</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="project">
-					<a href="{% static 'images/dak6.jpg' %}" class="img image-popup d-flex align-items-center"
-						style="background-image: url(/static/images/dak6.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center mb-5"><span
-								class="fa fa-plus"></span></div>
-					</a>
-					<div class="text">
-						<span class="subheading">Dakkappel</span>
-						<h3>Soort dakkappel</h3>
-						<p><span class="fa fa-map-marker mr-1"></span>Eindhoven</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4">
-				<div class="project">
-					<a href="{% static 'images/dak7.jpg' %}" class="img image-popup d-flex align-items-center"
-						style="background-image: url(/static/images/dak7.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center mb-5"><span
-								class="fa fa-plus"></span></div>
-					</a>
-					<div class="text">
-						<span class="subheading">Dakkappel</span>
-						<h3>Soort dakkappel</h3>
-						<p><span class="fa fa-map-marker mr-1"></span>Utrecht</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="project">
-					<a href="{% static 'images/dak8.jpg' %}" class="img image-popup d-flex align-items-center"
-						style="background-image: url(/static/images/dak8.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center mb-5"><span
-								class="fa fa-plus"></span></div>
-					</a>
-					<div class="text">
-						<span class="subheading">Dakkappel</span>
-						<h3>Soort dakkappel</h3>
-						<p><span class="fa fa-map-marker mr-1"></span>Oss</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="project">
-					<a href="{% static 'images/dak5.jpg' %}" class="img image-popup d-flex align-items-center"
-						style="background-image: url(/static/images/dak5.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center mb-5"><span
-								class="fa fa-plus"></span></div>
-					</a>
-					<div class="text">
-						<span class="subheading">Dakkappel</span>
-						<h3>Soort dakkappel</h3>
-						<p><span class="fa fa-map-marker mr-1"></span>Roermond</p>
-					</div>
-				</div>
-			</div>
+			</div>	
+			{% endfor %}   		 
 		</div>
 	</div>
 </section>
