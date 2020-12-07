@@ -44,7 +44,8 @@
                   </div>
                   <div class="col-9">
                     <div class="input_area">
-                      <input class="cutom_range" id="cutom_range1" type="range" />       
+                      <input class="cutom_range" min="300" max="600" value="300" id="cutom_range1" type="range" />       
+                      <div id="selectorValue">€ 300</div>
                       <span class="toggle_text">
                         Prijs per meter € 674,00 incl btw
                       </span>               
@@ -159,7 +160,8 @@
                   </div>
                   <div class="col-9">
                     <div class="input_area">
-                      <input class="cutom_range" id="cutom_range2" type="range" />
+                      <input class="cutom_range" id="cutom_range2" min="0" max="167.63" value="0" type="range" />
+                      <div id="selectorValue2">0</div>
                     </div>
                   </div>
                 </div>                            
@@ -289,7 +291,7 @@
                   <p>
                     Totaal
                   </p>
-                  <span style="font: 1.5rem;">$</span>
+                  <span style="font-size: 1.5rem;">€</span>
                   <div class="calc_result_number">0</div>
                 </div>
                 <button class="calculate_btn">Calculate</button>
@@ -314,11 +316,14 @@
     const calc_btn = document.querySelector(".calculate_btn");    
     const cutom_range1 = document.getElementById("cutom_range1");
     const cutom_range2 = document.getElementById("cutom_range2");
+    const selectorValue = document.getElementById("selectorValue");
+    const selectorValue2 = document.getElementById("selectorValue2");
 
     $('#demo-htmlselect').ddslick();
     $('#demo-htmlselect2').ddslick();
     $('#demo-htmlselect3').ddslick();
     $('#demo-htmlselect4').ddslick();
+
 
     $("#custom_check").on('change', function() {
     if ($(this).is(':checked')) {    
@@ -393,7 +398,8 @@
  
     function calculate_price (price) {
       const init_price = result.innerText;      
-      result.innerHTML= `${Number(init_price) + Number(price)}`;
+      const sum = Number(init_price) + Number(price);
+      result.innerHTML= `${sum.toFixed(2)}`;
     }
 
     calc_btn.addEventListener('click', () => {
@@ -409,10 +415,12 @@
     })
     cutom_range1.addEventListener('change', () => {
       const val = cutom_range1.value;
+      selectorValue.innerHTML = `€ ${val}`;      
       calculate_price(val);
     })
     cutom_range2.addEventListener('change', () => {
       const val = cutom_range2.value;
+      selectorValue2.innerHTML = `${val}`;  
       calculate_price(val);
     })
 </script>

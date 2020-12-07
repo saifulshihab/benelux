@@ -13569,3 +13569,27 @@ input:checked + .slider:before {
   background: #0984e6;
   color: white;
 }
+#selectorValue {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-top: 10px;
+  font-size: 11px;
+  color: black;
+  z-index: 2;
+  background-color: transparent;
+  border-radius: 50%;
+  text-align: center;
+}
+#selectorValue2 {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-top: 10px;
+  font-size: 11px;
+  color: black;
+  z-index: 2;
+  background-color: transparent;
+  border-radius: 50%;
+  text-align: center;
+}
