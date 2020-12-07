@@ -13558,17 +13558,6 @@ input:checked + .slider:before {
 #demo-htmlselect {
   width: 100% !important;
 }
-.calculate_btn {
-  padding: 6px 30px;
-  border-radius: 40px;
-  border: 2px solid #0984e6;
-  background: transparent;
-  transition: all 0.3s ease;
-}
-.calculate_btn:hover {
-  background: #0984e6;
-  color: white;
-}
 #selectorValue {
   width: 30px;
   height: 30px;
@@ -13592,4 +13581,15 @@ input:checked + .slider:before {
   background-color: transparent;
   border-radius: 50%;
   text-align: center;
+}
+.dd-container {
+  width: 100% !important;
+}
+.faqcard {
+  background-color: transparent !important;
+  border: 0 !important;
+}
+.faqbtn {
+  font-size: 1rem;
+  color: black;
 }

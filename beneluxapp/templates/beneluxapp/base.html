@@ -101,7 +101,7 @@
                     <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Over</a></li>
                     <li class="nav-item"><a href="{% url 'diensten' %}" class="nav-link">Diensten</a></li>
                     <li class="nav-item"><a href="{% url 'project' %}" class="nav-link">Projecten</a></li>
-                    <li class="nav-item"><a href="{% url 'prijscalculator' %}" class="nav-link">Prijscalculator</a></li>
+                    <li class="nav-item"><a href="{% url 'prijscalculator' %}" class="nav-link">Prijscalculator</a></li>                    
                     <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">contacten</a></li>
                 </ul>
                 <a href="#" class="btn-custom" data-toggle="modal" data-target="#exampleModalCenter">Vraag offerte
@@ -135,13 +135,16 @@
                         <h2 class="ftco-heading-2">Links</h2>
                         <div class="d-flex">
                             <ul class="list-unstyled mr-md-4">
-                                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Projecten</a></li>
-                                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Over ons</a></li>
-                                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Diensten</a></li>
-                                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Prijscalculator</a></li>
+                                <li><a href="{% url 'project' %}"><span class="fa fa-chevron-right mr-2"></span>Projecten</a></li>
+                                <li><a href="{% url 'about' %}"><span class="fa fa-chevron-right mr-2"></span>Over ons</a></li>
+                                <li><a href="{% url 'diensten' %}"><span class="fa fa-chevron-right mr-2"></span>Diensten</a></li>
+                                <li><a href="{% url 'prijscalculator' %}"><span class="fa fa-chevron-right mr-2"></span>Prijscalculator</a></li>
+                                <li><a href="{% url 'fienanciering' %}"><span class="fa fa-chevron-right mr-2"></span>Fienanciering</a></li>
+                                <li><a href="{% url 'werkwijze' %}"><span class="fa fa-chevron-right mr-2"></span>Werkwijze</a></li>
+                                <li><a href="{% url 'faq' %}"><span class="fa fa-chevron-right mr-2"></span>Veel gestelde vragen</a></li>
                             </ul>
                             <ul class="list-unstyled ml-md-5">
-                                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+                                <li><a href="{% url 'contact' %}"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
                                 <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Offerte aanvragen</a></li>
                             </ul>
                         </div>
@@ -181,6 +184,64 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Content -->
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close d-flex align-items-center justify-content-center"
+					data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true" class="fa fa-close"></span>
+				</button>
+			</div>
+			<div class="modal-body p-4 p-md-5">
+				<form action="#" class="appointment-form ftco-animate">
+					<h3>Offerte aanvragen</h3>
+					<div class="">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Voornaam">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Achternaam">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Telefoonnummer">
+						</div>
+					</div>
+					<div class="">
+						<div class="form-group">
+							<div class="form-field">
+								<div class="select-wrap">
+									<div class="icon"><span class="fa fa-chevron-down"></span></div>
+									<select name="" id="" class="form-control">
+										<option value="">Selecteer een dienst</option>
+										<option value="">Dakkapel tekenen</option>
+										<option value="">Uitvoer</option>
+										<option value="">Dakkapel tekenen + uitvoer</option>
+										<option value="">Volledige project uitvoer</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="form-group">
+							<textarea name="" id="" cols="30" rows="4" class="form-control"
+								placeholder="Bericht"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Vraag offerte aan" class="btn btn-primary py-3 px-4">
+						</div>
+					</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />

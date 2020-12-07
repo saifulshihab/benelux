@@ -45,7 +45,7 @@
                   <div class="col-9">
                     <div class="input_area">
                       <input class="cutom_range" min="300" max="600" value="300" id="cutom_range1" type="range" />       
-                      <div id="selectorValue">€ 300</div>
+                      <div id="selectorValue">300</div>
                       <span class="toggle_text">
                         Prijs per meter € 674,00 incl btw
                       </span>               
@@ -97,7 +97,7 @@
                   </div>
                   <div class="col-9">
                     <div class="input_area custom_select">
-                      <select id="demo-htmlselect2">                       
+                      <select id="demo-htmlselect2" style="width: 100%;">                       
                         <option selected="selected" value="0" data-imagesrc="{% static '/images/prize/Kleiner-dan-40-graden.png' %}"
                         data-description="Vlakke dakhelling,kleiner dan 40 graden.">Kleiner dan 40°</option>
                         <option value="1" data-imagesrc="{% static '/images/prize/Dakhelling-tussen-40-en-45-graden.png' %}"
@@ -253,12 +253,10 @@
                   <div class="col-9">
                     <div class="input_area custom_select">
                       <select id="demo-htmlselect4">                        
-                        <option value="0" selected="selected" 
-                        data-description="Plaatsen en leveren is € 1000,- voor uw dakkapel. Binnen één dag klaar.">Inclusief plaatsen en leveren</option>
-                        <option value="24821" 
-                            data-description="Beide zijkanten van Kunststof Rabatdelen standaard kleuren. € 248,21 incl btw">Kunststof Rabatdelen</option>
-                        <option value="1000"  
-                            data-description="Plaatsen en leveren is € 1000,- voor uw dakkapel. Binnen één dag klaar.">Hout Rabatdelen</option>                                           
+                        <option value="1000" selected="selected" 
+                        data-description="Dan bespaart u € 1000,-. U voert zelf uw bouwafval af..">Zonder plaatsen en levering</option>
+                        <option value="1000" 
+                            data-description="Plaatsen en leveren is € 1000,- voor uw dakkapel. Binnen één dag klaar.">Inclusief plaatsen en leveren</option>                        
                       </select>
                     </div>
                   </div>
@@ -293,8 +291,7 @@
                   </p>
                   <span style="font-size: 1.5rem;">€</span>
                   <div class="calc_result_number">0</div>
-                </div>
-                <button class="calculate_btn">Calculate</button>
+                </div>               
               </div>
 
             </div>
@@ -312,17 +309,32 @@
     const dakkapel_select = document.querySelector("#demo-htmlselect");       
     const dakkapel_select2 = document.querySelector("#demo-htmlselect2");       
     const dakkapel_select3 = document.querySelector("#demo-htmlselect3");       
-    const dakkapel_select4 = document.querySelector("#demo-htmlselect4");       
-    const calc_btn = document.querySelector(".calculate_btn");    
+    const dakkapel_select4 = document.querySelector("#demo-htmlselect4");           
     const cutom_range1 = document.getElementById("cutom_range1");
     const cutom_range2 = document.getElementById("cutom_range2");
     const selectorValue = document.getElementById("selectorValue");
     const selectorValue2 = document.getElementById("selectorValue2");
-
-    $('#demo-htmlselect').ddslick();
-    $('#demo-htmlselect2').ddslick();
-    $('#demo-htmlselect3').ddslick();
-    $('#demo-htmlselect4').ddslick();
+    
+    $('#demo-htmlselect').ddslick({
+      onSelected: function(selectedData){
+        calculate_price(0);
+      }
+    });
+    $('#demo-htmlselect2').ddslick({
+      onSelected: function(selectedData){
+        calculate_price(0);
+      }
+    });
+    $('#demo-htmlselect3').ddslick({
+      onSelected: function(selectedData){
+        calculate_price(0);
+      }
+    });
+    $('#demo-htmlselect4').ddslick({
+      onSelected: function(selectedData){
+        calculate_price(0);
+      }
+    });
 
 
     $("#custom_check").on('change', function() {
@@ -396,26 +408,20 @@
       calculate_price(val);  
     });
  
-    function calculate_price (price) {
-      const init_price = result.innerText;      
-      const sum = Number(init_price) + Number(price);
-      result.innerHTML= `${sum.toFixed(2)}`;
-    }
-
-    calc_btn.addEventListener('click', () => {
-      let init_price;
-      if(result.innerText !== 0){
-          init_price = result.innerText;
+    function calculate_price (price) {      
+      let sum = 0;      
+      if(price < 0){
+        sum = Number(result.innerText) + Number(price);
+        result.innerHTML= `${sum.toFixed(2)}`;
       }else{
-          init_price = 0;
-      }
-      const sum = Number(dakkapel_select.value) + Number(dakkapel_select2.value) + Number(dakkapel_select3.value) + Number(dakkapel_select4.value);
-      
-      result.innerHTML= `${Number(init_price) + Number(sum)}`;
-    })
+      sum = Number(dakkapel_select.value) + Number(dakkapel_select2.value) + Number(dakkapel_select3.value) + Number(dakkapel_select4.value) + Number(price);
+      result.innerHTML= `${sum.toFixed(2)}`;
+      }                    
+    }
+ 
     cutom_range1.addEventListener('change', () => {
       const val = cutom_range1.value;
-      selectorValue.innerHTML = `€ ${val}`;      
+      selectorValue.innerHTML = `${val}`;      
       calculate_price(val);
     })
     cutom_range2.addEventListener('change', () => {

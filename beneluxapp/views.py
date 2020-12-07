@@ -27,4 +27,13 @@ def prijscalculator(request):
 def diensten(request):
      return render(request, 'beneluxapp/diensten.html')
 
+def fienanciering(request):
+     return render(request, 'beneluxapp/fienanciering.html')
+
+def werkwijze(request):
+     return render(request, 'beneluxapp/werkwijze.html')
+
+def faq(request):
+     return render(request, 'beneluxapp/faq.html')
+
  
