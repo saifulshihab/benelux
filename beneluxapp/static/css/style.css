@@ -13582,3 +13582,14 @@ input:checked + .slider:before {
   border-radius: 50%;
   text-align: center;
 }
+.dd-container {
+  width: 100% !important;
+}
+.faqcard {
+  background-color: transparent !important;
+  border: 0 !important;
+}
+.faqbtn {
+  font-size: 1rem;
+  color: black;
+}
