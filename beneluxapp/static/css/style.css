@@ -13593,3 +13593,13 @@ input:checked + .slider:before {
   font-size: 1rem;
   color: black;
 }
+.faq_page_link {
+  color: #0984e6 !important;
+  font-style: italic;
+  font-weight: bold;
+  cursor: pointer;
+}
+.faq_page_link:hover {
+  color: #016ac0;
+  text-decoration: underline;
+}

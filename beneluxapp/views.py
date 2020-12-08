@@ -33,7 +33,31 @@ def fienanciering(request):
 def werkwijze(request):
      return render(request, 'beneluxapp/werkwijze.html')
 
+def begrippen(request):
+     return render(request, 'beneluxapp/begrippen.html')
 def faq(request):
      return render(request, 'beneluxapp/faq.html')
+def dakkapelPrijzen(request):
+     return render(request, 'beneluxapp/dakkapel-prijzen.html')
+def dakkapelVergunning(request):
+     return render(request, 'beneluxapp/dakkapel-vergunning.html')
+def dakkapelVergunningsvrij(request):
+     return render(request, 'beneluxapp/dakkapel-vergunningsvrij.html')
+def garanties(request):
+     return render(request, 'beneluxapp/garanties.html')
+def kenmerken(request):
+     return render(request, 'beneluxapp/kenmerken.html')
+def kostenDakkapel(request):
+     return render(request, 'beneluxapp/kosten-dakkapel.html')
+def prefabDakkapel(request):
+     return render(request, 'beneluxapp/prefab-dakkapel.html')
+def prijslijstVergunning(request):
+     return render(request, 'beneluxapp/prijslijst-vergunning.html')
+def rolluiken(request):
+     return render(request, 'beneluxapp/rolluiken-in-het-overstek.html')
+def scree(request):
+     return render(request, 'beneluxapp/screens-in-het-overstek.html')
+def van(request):
+     return render(request, 'beneluxapp/van-offerte-tot-montage.html')
 
  
