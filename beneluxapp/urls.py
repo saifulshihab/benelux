@@ -24,5 +24,6 @@ urlpatterns = [
     path('rolluiken-in-het-overstek/', views.rolluiken, name='rolluiken-in-het-overstek'),
     path('screens-in-het-overstek/', views.scree, name='screens-in-het-overstek'),
     path('van-offerte-tot-montage/', views.van, name='van-offerte-tot-montage'),
-    path('a/', views.dakkapelPrijzen, name='a'),
+    path('sendMessage/', views.sendMessageToClient, name='sendMessage'),
+    
 ]
