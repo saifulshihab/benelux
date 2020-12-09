@@ -124,6 +124,17 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  BASE_DIR / 'media'
 
+<<<<<<< HEAD
 django_heroku.settings(locals())
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+=======
+# Email Config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'beneluxtesttest@gmail.com'
+EMAIL_HOST_PASSWORD = 'benelux123'
+>>>>>>> 764fb355f684ed9f6e13e37d46a0e1caed698b37
