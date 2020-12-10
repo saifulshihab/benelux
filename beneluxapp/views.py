@@ -11,9 +11,6 @@ def home(request):
      
 def index(request):
      return render(request, 'beneluxapp/index.html')
-
-def about(request):
-     return render(request, 'beneluxapp/about.html')
      
 def contact(request):
      return render(request, 'beneluxapp/contact.html')
@@ -74,6 +71,9 @@ def scree(request):
 
 def van(request):
      return render(request, 'beneluxapp/van-offerte-tot-montage.html')
+
+def over(request):
+     return render(request, 'beneluxapp/over.html')
 
 def sendMessageToClient(request):
      if request.method == "POST":
