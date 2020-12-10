@@ -2,252 +2,501 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Benelux Dakkapellen</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
 
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/owl.theme.default.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}" />
 
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
 
-<body>
+  <body>
     <div class="py-1 top">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm text-center text-md-left mb-md-0 mb-2 pr-md-4 d-flex topper align-items-center">
-                    <p class="mb-0 w-100">
-                        <span class="fa fa-paper-plane"></span>
-                        <span class="text">info@Beneluxdakkapellen.com</span>
-                    </p>
-                </div>
-                <div class="col-sm justify-content-center d-flex mb-md-0 mb-2">
-                    <div class="social-media">
-                        <p class="mb-0 d-flex">
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-                        </p>
-                    </div>
-                </div>
-                <div
-                    class="col-sm-12 col-md-6 col-lg-7 d-flex topper align-items-center text-lg-right justify-content-end">
-                    <p class="mb-0 register-link"><a href="#" class="btn btn-primary" data-toggle="modal"
-                            data-target="#exampleModalCenter">Vraag offerte aan</a></p>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="mt-2">
+              {% if msg %} {% if error == "true" %}
+              <div class="alert alert-danger alert-dismissible" role="alert">
+                <i class="mr-2 fa fa-exclamation-circle"></i>
+                {{msg}}
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              {% else %}
+              <div class="alert alert-success alert-dismissible" role="alert">
+                <i class="mr-2 fa fa-exclamation-circle"></i>
+                {{msg}}
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              {% endif %} {% endif %}
             </div>
+          </div>
         </div>
+        <div class="row">
+          <div
+            class="col-sm text-center text-md-left mb-md-0 mb-2 pr-md-4 d-flex topper align-items-center"
+          >
+            <p class="mb-0 w-100">
+              <span class="fa fa-paper-plane"></span>
+              <span class="text">info@Beneluxdakkapellen.com</span>
+            </p>
+          </div>
+          <div class="col-sm justify-content-center d-flex mb-md-0 mb-2">
+            <div class="social-media">
+              <p class="mb-0 d-flex">
+                <a
+                  href="#"
+                  class="d-flex align-items-center justify-content-center"
+                  ><span class="fa fa-facebook"
+                    ><i class="sr-only">Facebook</i></span
+                  ></a
+                >
+                <a
+                  href="#"
+                  class="d-flex align-items-center justify-content-center"
+                  ><span class="fa fa-twitter"
+                    ><i class="sr-only">Twitter</i></span
+                  ></a
+                >
+                <a
+                  href="#"
+                  class="d-flex align-items-center justify-content-center"
+                  ><span class="fa fa-instagram"
+                    ><i class="sr-only">Instagram</i></span
+                  ></a
+                >
+                <a
+                  href="#"
+                  class="d-flex align-items-center justify-content-center"
+                  ><span class="fa fa-dribbble"
+                    ><i class="sr-only">Dribbble</i></span
+                  ></a
+                >
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-sm-12 col-md-6 col-lg-7 d-flex topper align-items-center text-lg-right justify-content-end"
+          >
+            <p class="mb-0 register-link">
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+                >Vraag offerte aan</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="pt-4 pb-5">
-        <div class="container">
-            <div class="row d-flex align-items-start align-items-center px-3 px-md-0">
-                <div class="col-md-4 d-flex mb-2 mb-md-0">
-                    <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
-                        <span class="logo">
-                            <img src="{% static 'images/logo.jfif' %}" />
-                        </span>
-                        <!-- <span class="ml-2">Benelux <small>Dakkapellen</small></span> -->
-                    </a>
-                </div>
-                <div class="col-md-4 d-flex topper mb-md-0 mb-2 align-items-center">
-                    <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="fa fa-map"></span>
-                    </div>
-                    <div class="pr-md-4 pl-md-3 pl-3 text">
-                        <p class="con"><span>Neem telefonisch contact</span> <span>0638724047</span></p>
-                        <p class="con">24/7 support</p>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex topper mb-md-0 align-items-center">
-                    <div class="icon d-flex justify-content-center align-items-center"><span
-                            class="fa fa-paper-plane"></span>
-                    </div>
-                    <div class="text pl-3 pl-md-3">
-                        <p class="hr"><span>Onze locatie</span></p>
-                        <p class="con">Sint Jorristraat 8</p>
-                    </div>
-                </div>
+      <div class="container">
+        <div
+          class="row d-flex align-items-start align-items-center px-3 px-md-0"
+        >
+          <div class="col-md-4 d-flex mb-2 mb-md-0">
+            <a
+              class="navbar-brand d-flex align-items-center"
+              href="{% url 'index' %}"
+            >
+              <span class="logo">
+                <img src="{% static 'images/logo.jfif' %}" />
+              </span>
+              <!-- <span class="ml-2">Benelux <small>Dakkapellen</small></span> -->
+            </a>
+          </div>
+          <div class="col-md-4 d-flex topper mb-md-0 mb-2 align-items-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <span class="fa fa-map"></span>
             </div>
+            <div class="pr-md-4 pl-md-3 pl-3 text">
+              <p class="con">
+                <span>Neem telefonisch contact</span> <span>0638724047</span>
+              </p>
+              <p class="con">24/7 support</p>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex topper mb-md-0 align-items-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <span class="fa fa-paper-plane"></span>
+            </div>
+            <div class="text pl-3 pl-md-3">
+              <p class="hr"><span>Onze locatie</span></p>
+              <p class="con">Sint Jorristraat 8</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container d-flex align-items-center">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars"></span> Menu
-            </button>
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Over</a></li>
-                    <li class="nav-item"><a href="{% url 'diensten' %}" class="nav-link">Diensten</a></li>
-                    <li class="nav-item"><a href="{% url 'project' %}" class="nav-link">Projecten</a></li>
-                    <li class="nav-item"><a href="{% url 'prijscalculator' %}" class="nav-link">Prijscalculator</a></li>                    
-                    <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">contacten</a></li>
-                </ul>
-                <a href="#" class="btn-custom" data-toggle="modal" data-target="#exampleModalCenter">Vraag offerte
-                    aan</a>
-            </div>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light"
+      id="ftco-navbar"
+    >
+      <div class="container d-flex align-items-center">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fa fa-bars"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="{% url 'index' %}" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'over' %}" class="nav-link">Over</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'diensten' %}" class="nav-link">Diensten</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'project' %}" class="nav-link">Projecten</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'prijscalculator' %}" class="nav-link"
+                >Prijscalculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'contact' %}" class="nav-link">contacten</a>
+            </li>
+          </ul>
+          <a
+            href="#"
+            class="btn-custom"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+            >Vraag offerte aan</a
+          >
         </div>
+      </div>
     </nav>
     <!-- END nav -->
 
-    {% block content %}
-
-    {% endblock %}
+    {% block content %} {% endblock %}
 
     <footer class="ftco-footer">
-        <div class="container mb-5 pb-4">
-            <div class="row">
-                <div class="col-lg col-md-6">
-                    <div class="ftco-footer-widget">
-                        <h2 class="ftco-heading-2 d-flex align-items-center">Over</h2>
-                        <p>Benelux Dakkapellen realiseert voor u op maat werk dakkappelen</p>
-                        <ul class="ftco-footer-social list-unstyled mt-4">
-                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                            <li><a href="#"><span class="fa fa-instagram"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="ftco-footer-widget">
-                        <h2 class="ftco-heading-2">Links</h2>
-                        <div class="d-flex">
-                            <ul class="list-unstyled mr-md-4">
-                                <li><a href="{% url 'project' %}"><span class="fa fa-chevron-right mr-2"></span>Projecten</a></li>
-                                <li><a href="{% url 'about' %}"><span class="fa fa-chevron-right mr-2"></span>Over ons</a></li>
-                                <li><a href="{% url 'diensten' %}"><span class="fa fa-chevron-right mr-2"></span>Diensten</a></li>
-                                <li><a href="{% url 'prijscalculator' %}"><span class="fa fa-chevron-right mr-2"></span>Prijscalculator</a></li>
-                                <li><a href="{% url 'fienanciering' %}"><span class="fa fa-chevron-right mr-2"></span>Fienanciering</a></li>
-                                <li><a href="{% url 'werkwijze' %}"><span class="fa fa-chevron-right mr-2"></span>Werkwijze</a></li>
-                                <li><a href="{% url 'begrippen' %}"><span class="fa fa-chevron-right mr-2"></span>Begrippen</a></li>
-                            </ul>
-                            <ul class="list-unstyled ml-md-5">
-                                <li><a href="{% url 'faq' %}"><span class="fa fa-chevron-right mr-2"></span>Veelgestelde vragen</a></li>
-                                <li><a href="{% url 'contact' %}"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
-                                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Offerte aanvragen</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg col-md-6">
-                    <div class="ftco-footer-widget">
-                        <h2 class="ftco-heading-2">Kom langs!</h2>
-                        <div class="block-23 mb-3">
-                            <ul>
-                                <li><span class="fa fa-map-marker mr-3"></span><span class="text">Sint Jorristraat 8</span></li>
-                                <li><a href="#"><span class="fa fa-phone mr-3"></span><span class="text">+638724047
-                                            </span></a></li>
-                                <li><a href="#"><span class="fa fa-paper-plane mr-3"></span><span
-                                            class="text">info@Beneluxdakkapellen</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="container mb-5 pb-4">
+        <div class="row">
+          <div class="col-lg col-md-6">
+            <div class="ftco-footer-widget">
+              <h2 class="ftco-heading-2 d-flex align-items-center">Over</h2>
+              <p>
+                Benelux Dakkapellen realiseert voor u op maat werk dakkappelen
+              </p>
+              <ul class="ftco-footer-social list-unstyled mt-4">
+                <li>
+                  <a href="#"><span class="fa fa-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="fa fa-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span class="fa fa-instagram"></span></a>
+                </li>
+              </ul>
             </div>
-        </div>
-        <div class="container-fluid bg-primary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 aside-stretch py-3">
+          </div>
 
-                        <p class="mb-0">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> Alle rechten behoren toe aan Benelux Dakkapellen | Deze website is gemaakt met <i class="fa fa-heart" aria-hidden="true"></i> door <a
-                                href="#" target="_blank">Capint</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="ftco-footer-widget">
+              <h2 class="ftco-heading-2">Links</h2>
+              <div class="d-flex">
+                <ul class="list-unstyled mr-md-4">
+                  <li>
+                    <a href="{% url 'project' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span
+                      >Projecten</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% url 'over' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span>Over ons</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% url 'diensten' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span>Diensten</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% url 'prijscalculator' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span
+                      >Prijscalculator</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% url 'fienanciering' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span
+                      >Fienanciering</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% url 'werkwijze' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span
+                      >Werkwijze</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% url 'begrippen' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span
+                      >Begrippen</a
+                    >
+                  </li>
+                </ul>
+                <ul class="list-unstyled ml-md-5">
+                  <li>
+                    <a href="{% url 'faq' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span
+                      >Veelgestelde vragen</a
+                    >
+                  </li>
+                  <li>
+                    <a href="{% url 'contact' %}"
+                      ><span class="fa fa-chevron-right mr-2"></span>Contact</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-chevron-right mr-2"></span>Offerte
+                      aanvragen</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
+
+          <div class="col-lg col-md-6">
+            <div class="ftco-footer-widget">
+              <h2 class="ftco-heading-2">Kom langs!</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li>
+                    <span class="fa fa-map-marker mr-3"></span
+                    ><span class="text">Sint Jorristraat 8</span>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-phone mr-3"></span
+                      ><span class="text">+638724047 </span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="fa fa-paper-plane mr-3"></span
+                      ><span class="text">info@Beneluxdakkapellen</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="container-fluid bg-primary">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 aside-stretch py-3">
+              <p class="mb-0">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                Alle rechten behoren toe aan Benelux Dakkapellen | Deze website
+                is gemaakt met
+                <i class="fa fa-heart" aria-hidden="true"></i> door
+                <a href="#" target="_blank">Capint</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Modal Content -->
 
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-	aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close d-flex align-items-center justify-content-center"
-					data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true" class="fa fa-close"></span>
-				</button>
-			</div>
-			<div class="modal-body p-4 p-md-5">
-				<form action="#" class="appointment-form ftco-animate">
-					<h3>Offerte aanvragen</h3>
-					<div class="">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Voornaam">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Achternaam">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Telefoonnummer">
-						</div>
-					</div>
-					<div class="">
-						<div class="form-group">
-							<div class="form-field">
-								<div class="select-wrap">
-									<div class="icon"><span class="fa fa-chevron-down"></span></div>
-									<select name="" id="" class="form-control">
-										<option value="">Selecteer een dienst</option>
-										<option value="">Dakkapel tekenen</option>
-										<option value="">Uitvoer</option>
-										<option value="">Dakkapel tekenen + uitvoer</option>
-										<option value="">Volledige project uitvoer</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="">
-						<div class="form-group">
-							<textarea name="" id="" cols="30" rows="4" class="form-control"
-								placeholder="Bericht"></textarea>
-						</div>
-						<div class="form-group">
-							<input type="submit" value="Vraag offerte aan" class="btn btn-primary py-3 px-4">
-						</div>
-					</div>
-                    </form>
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close d-flex align-items-center justify-content-center"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" class="fa fa-close"></span>
+            </button>
+          </div>
+          <div class="modal-body p-4 p-md-5">
+            <form
+              action="{% url 'reqQuote' %}"
+              method="POST"
+              enctype="multipart/form-data"
+              class="appointment-form ftco-animate"
+            >
+              {% csrf_token %}
+              <h3>Offerte aanvragen</h3>
+              <div class="">
+                <div class="form-group">
+                  <input
+                    name="f_name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Voornaam"
+                  />
                 </div>
-            </div>
+                <div class="form-group">
+                  <input
+                    name="l_name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Achternaam"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    name="phone"
+                    type="text"
+                    class="form-control"
+                    placeholder="Telefoonnummer"
+                  />
+                </div>
+              </div>
+              <div class="">
+                <div class="form-group">
+                  <div class="form-field">
+                    <div class="select-wrap">
+                      <div class="icon">
+                        <span class="fa fa-chevron-down"></span>
+                      </div>
+                      <select name="shift" id="" class="form-control">
+                        <option value="Selecteer een dienst">
+                          Selecteer een dienst
+                        </option>
+                        <option value="Dakkapel tekenen">
+                          Dakkapel tekenen
+                        </option>
+                        <option value="Uitvoer">Uitvoer</option>
+                        <option value="Dakkapel tekenen + uitvoer">
+                          Dakkapel tekenen + uitvoer
+                        </option>
+                        <option value="Volledige project uitvoer">
+                          Volledige project uitvoer
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="form-group">
+                  <textarea
+                    name="message"
+                    id=""
+                    cols="30"
+                    rows="4"
+                    class="form-control"
+                    placeholder="Bericht"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    value="Vraag offerte aan"
+                    class="btn btn-primary py-3 px-4"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" /></svg></div>
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle
+          class="path-bg"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke="#eeeeee"
+        />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#F96D00"
+        />
+      </svg>
+    </div>
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
@@ -262,12 +511,9 @@
     <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
     <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
     <script src="{% static 'js/scrollax.min.js' %}"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{% static 'js/google-map.js' %}"></script>
 
     <script src="{% static 'js/main.js' %}"></script>
-
-</body>
-
+  </body>
 </html>

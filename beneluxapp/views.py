@@ -11,9 +11,6 @@ def home(request):
      
 def index(request):
      return render(request, 'beneluxapp/index.html')
-
-def about(request):
-     return render(request, 'beneluxapp/about.html')
      
 def contact(request):
      return render(request, 'beneluxapp/contact.html')
@@ -75,6 +72,9 @@ def scree(request):
 def van(request):
      return render(request, 'beneluxapp/van-offerte-tot-montage.html')
 
+def over(request):
+     return render(request, 'beneluxapp/over.html')
+
 def sendMessageToClient(request):
      if request.method == "POST":
           name = request.POST['name']
@@ -97,3 +97,27 @@ def sendMessageToClient(request):
           return render(request, 'beneluxapp/contact.html', context)     
      else:
           return render(request, 'beneluxapp/contact.html')     
+
+def reqQuote(request):
+     if request.method == "POST":
+          f_name = request.POST['f_name']
+          l_name = request.POST['l_name']
+          phone = request.POST['phone']
+          shift = request.POST['shift']
+          message = request.POST['message']
+          if(f_name == '' or l_name == '' or phone == '' or shift == '' or message == '' ):
+               context = {"error": "true", 'msg': "Please fill all input box correctly!"}
+          else:
+               template = render_to_string('beneluxapp/successQuote.html', {'f_name': f_name, 'l_name': l_name, 'phone': phone, 'shift': shift, 'message': message})
+               email = EmailMessage(
+                    'New quotes from customer!',
+                    template,
+                    settings.EMAIL_HOST_USER,
+                    ['a.shakib.abubaker@gmail.com']
+               )
+               email.fail_silently=False
+               email.send()
+               context = {"error": "false", 'msg': "Thank you! You message has been received."}                              
+          return render(request, 'beneluxapp/index.html', context)     
+     else:
+          return render(request, 'beneluxapp/index.html')     
