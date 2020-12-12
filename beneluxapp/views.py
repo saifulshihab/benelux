@@ -110,14 +110,14 @@ def reqQuote(request):
           else:
                template = render_to_string('beneluxapp/successQuote.html', {'f_name': f_name, 'l_name': l_name, 'phone': phone, 'shift': shift, 'message': message})
                email = EmailMessage(
-                    'New quotes from customer!',
+                    'Nieuwe offerte van bezoeker!',
                     template,
                     settings.EMAIL_HOST_USER,
                     ['a.shakib.abubaker@gmail.com']
                )
                email.fail_silently=False
                email.send()
-               context = {"error": "false", 'msg': "Thank you! You message has been received."}                              
+               context = {"error": "false", 'msg': "Bedankt! Uw bericht is in goede staat ontvangen."}                              
           return render(request, 'beneluxapp/index.html', context)     
      else:
           return render(request, 'beneluxapp/index.html')     

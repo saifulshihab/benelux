@@ -19,8 +19,11 @@
                   <div class="col-9">
                     <div class="input_area custom_select">
                       <select id="demo-htmlselect">
+                        <option value="75" data-imagesrc="{% static '/images/dakarchitect.jpg' %}" selected="selected"
+                            data-description="Kies hier uw soort dakkapel">Selecteer hier</option>
+                            
                         <option value="100" data-imagesrc="{% static '/images/prize/Dakkapel-A.jpg' %}" selected="selected"
-                        data-description="Dakkapel één draaikiepraam. Min 1,00 m - max 1,50 m">Type A</option>
+                            data-description="Dakkapel één draaikiepraam. Min 1,00 m - max 1,50 m">Type A</option>
                         <option value="150" data-imagesrc="{% static '/images/prize/Dakkapel-B.jpg' %}"
                             data-description="Dakkapel één draaikiepraam. Min 1,50 m - max 3,00 m">Type B</option>
                         <option value="500" data-imagesrc="{% static '/images/prize/Dakkapel-C.jpg' %}"
@@ -317,7 +320,7 @@
     
     $('#demo-htmlselect').ddslick({
       onSelected: function(selectedData){
-        calculate_price(4000);
+        calculate_price(6000);
       }
     });
     $('#demo-htmlselect2').ddslick({
