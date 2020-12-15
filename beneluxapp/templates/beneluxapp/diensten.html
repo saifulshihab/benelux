@@ -1,44 +1,78 @@
-{% extends 'beneluxapp/base.html' %}
-{% block content %}
-{% load static %}
-<div class="container p-5 ftco-animate ">
-    <div class="row">
-        <div class="col-12">
-            <h1>BENT U OP ZOEK NAAR EEN DAKKAPEL?</h1>
-            <img src="{% static 'images/diensten/Page-1-Image-1.png' %}" class="d-block mx-auto" />
-            <div class="mt-4 ftco-animate">
-                <p class="mb-4 text-justify">
-                    Is uw huidige dakkapel aan vervanging toe of wilt u LICHT en RUIMTE creëren, dan bent u bij Benelux dakkapellen op het juiste adres. Wij leveren KUNSTSTOF dakkapellen in de hoogste kwaliteit. Een kunststof dakkapel is een goede investering die u terug zult verdienen door de lage onderhoudskosten en de lange levensduur.
-                </p>
-                <p class="mb-4 text-justify">
-                    Wij leveren dakkapellen in diverse maten en uitvoeringen: modern, klassiek of monumentaal zijn allemaal mogelijk. Daarnaast zijn de dakkapellen in het kunststof in alle kleuren beschikbaar. Een dakopbouw is altijd maatwerk en wordt ingemeten en geplaatst op de gewenste locatie.
-                </p>
-                <p class="mb-4 text-justify">
-                    Onze Prefab dakkapellen worden volledig afgewerkt en in zijn geheel bij u afgeleverd. Hierdoor kan de kunststof dakkapel binnen 1 dag geplaatst worden. Wij regelen van opmeten tot eind montage voor u.
-                </p>
-            </div>
-
-            <div class="mt-5 ftco-animate">
-                <div class="mb-3">
-                    <h4>Dakkapel isolatie</h4>
-                    <p class="text-justify"> 
-                        Als u een dakkapel laat plaatsen is het van belang dat uw dakkapel wordt voorzien van het juiste isolatiemateriaal aan zowel de binnenkant als de buitenkant. De specialisten van Benelux dakkapellen
-                    </p>
-                </div>
-                <div class="mb-3">
-                    <h4>Verschillende mogelijkheden</h4>
-                    <p class="text-justify">
-                        Bij het isoleren van een dakkapel zijn een aantal zaken belangrijk. Om tocht en lekkages te voorkomen is het van belang dat u niet alleen de binnenkant laat isoleren, maar ook de buitenkant laat voorzien van het juiste isolatiemateriaal. Voor elk type dakkapel is een andere vorm van toepassing. Zo wordt er bij een houten dakkapel onderscheid gemaakt tussen warme en koude isolatie, maar is een kunststof dakkapel van zichzelf al goed geïsoleerd.
-                    </p>
-                </div>
-                <div class="mb-3">
-                    <h4>Adviserend gesprek</h4>
-                    <p class="text-justify">
-                        Voorafgaand aan de plaatsing van uw dakkapel bespreken onze adviseurs met u welk type isolatie het beste aansluit bij uw wensen. Wilt u standaard isolatiemateriaal? Of gaat u juist voor isolatiemateriaal met een hoge waarde, omdat u extra wilt besparen op uw stookkosten? Wij vertellen u graag meer, maar de keuze is uiteindelijk aan u!
-                    </p>
-                </div>
-            </div>
-        </div>
+{% extends 'beneluxapp/base.html' %} {% block content %} {% load static %}
+<div class="row mt-5 dientsten_top">
+  <div class="col-md-6 p-5text-center">
+    <div class="ftco-animate">
+      <img
+        src="{% static 'images/dakkapel1.jpg' %}"
+        class="d-block mx-auto img-fluid"
+      />
+      <h2 class="mt-3 text-center">BENT U OP ZOEK NAAR EEN DAKKAPEL?</h2>
     </div>
+  </div>
+  <div class="col-md-6 p-5" style="background-color: #2c2c2c">
+    <div class="ftco-animate">
+      <h1 class="dient_h1">Diensten</h1>
+    </div>
+    <div>
+      <div style="font-size: 14px" class="mt-4 ftco-animate">
+        <p class="mb-4 text-justify">
+          Is uw huidige dakkapel aan vervanging toe of wilt u LICHT en RUIMTE
+          creëren, dan bent u bij Benelux dakkapellen op het juiste adres.
+          Wij leveren KUNSTSTOF dakkapellen in de hoogste kwaliteit.
+          Een kunststof dakkapel is een goede investering die u terug zult
+          verdienen door de lage onderhoudskosten en de lange levensduur.
+        </p>
+        <p class="mb-4 text-justify">
+          Wij leveren dakkapellen in diverse maten en uitvoeringen: modern,
+          klassiek of monumentaal zijn allemaal mogelijk. Daarnaast zijn de
+          dakkapellen in het kunststof in alle kleuren beschikbaar. Een
+          dakopbouw is altijd maatwerk en wordt ingemeten en geplaatst op de
+          gewenste locatie.
+        </p>
+        <p class="mb-4 text-justify">
+          Onze Prefab dakkapellen worden volledig afgewerkt en in zijn geheel
+          bij u afgeleverd. Hierdoor kan de kunststof dakkapel binnen 1 dag
+          geplaatst worden. Wij regelen van opmeten tot eind montage voor u.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container p-5 ftco-animate">
+  <div class="row">
+    <div class="col-md-4 text-center mb-3">
+      <i class="dient_para_i fa fa-window-maximize"></i>
+      <h5 class="font-weight-bold">Dakkapel isolatie</h5>
+      <p class="text-justify">
+        Als u een dakkapel laat plaatsen is het van belang dat uw dakkapel wordt
+        voorzien van het juiste isolatiemateriaal aan zowel de binnenkant als de
+        buitenkant. De specialisten van Benelux dakkapellen
+      </p>
+    </div>
+    <div class="col-md-4 text-center mb-3">
+      <i class="dient_para_i fa fa-life-ring"></i>
+      <h5 class="font-weight-bold">Verschillende mogelijkheden</h5>
+      <p class="text-justify">
+        Bij het isoleren van een dakkapel zijn een aantal zaken belangrijk. Om
+        tocht en lekkages te voorkomen is het van belang dat u niet alleen de
+        binnenkant laat isoleren, maar ook de buitenkant laat voorzien van het
+        juiste isolatiemateriaal. Voor elk type dakkapel is een andere vorm van
+        toepassing. Zo wordt er bij een houten dakkapel onderscheid gemaakt
+        tussen warme en koude isolatie, maar is een kunststof dakkapel van
+        zichzelf al goed geïsoleerd.
+      </p>
+    </div>
+    <div class="col-md-4 text-center mb-3">
+      <i class="dient_para_i fa fa-comments"></i>
+      <h5 class="font-weight-bold">Adviserend gesprek</h5>
+      <p class="text-justify">
+        Voorafgaand aan de plaatsing van uw dakkapel bespreken onze adviseurs
+        met u welk type isolatie het beste aansluit bij uw wensen. Wilt u
+        standaard isolatiemateriaal? Of gaat u juist voor isolatiemateriaal met
+        een hoge waarde, omdat u extra wilt besparen op uw stookkosten? Wij
+        vertellen u graag meer, maar de keuze is uiteindelijk aan u!
+      </p>
+    </div>
+  </div>
 </div>
 {% endblock %}
