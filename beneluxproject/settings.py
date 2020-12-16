@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'beneluxproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -136,7 +136,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'a.shakib.abubaker@gmail.com'
-EMAIL_HOST_PASSWORD = 'Zeila_2017'
+EMAIL_HOST_PASSWORD = 'Habohali_2019'
 
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
@@ -144,7 +144,7 @@ DATABASES['default'].update(prod_db)
 
 ALLOWED_HOSTS = ['beneluxbilal.herokuapp.com']
 
-STATIC_ROOT = 'static'
+STATIC_ROOT = '/static/'
 
 django_heroku.settings(locals())
 
