@@ -132,3 +132,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'a.shakib.abubaker@gmail.com'
 EMAIL_HOST_PASSWORD = 'Zeila_2017'
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
+
+ALLOWED_HOSTS = ['beneluxbilal.herokuapp.com']
