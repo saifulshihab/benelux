@@ -144,6 +144,8 @@ DATABASES['default'].update(prod_db)
 
 ALLOWED_HOSTS = ['beneluxbilal.herokuapp.com']
 
+STATIC_ROOT = 'static'
+
 django_heroku.settings(locals())
 
 STATICFILES_STORAGE =  'whitenoise.storage.CompressedManifestStaticFilesStorage'
