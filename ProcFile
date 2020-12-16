@@ -1,1 +1,1 @@
-web: gunicorn beneluxproject.wsgi
+web: gunicorn beneluxapp:app
