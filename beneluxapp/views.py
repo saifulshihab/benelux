@@ -5,6 +5,7 @@ from beneluxapp.models import projects
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
+from .models import over_para, diensten_para
 
 def home(request):
      return render(request, 'beneluxapp/home.html')
@@ -25,7 +26,9 @@ def prijscalculator(request):
      return render(request, 'beneluxapp/prijsberekening.html')
 
 def diensten(request):
-     return render(request, 'beneluxapp/diensten.html')
+     diensten_data = diensten_para.objects.all()
+     context = {'diensten_para': diensten_data}
+     return render(request, 'beneluxapp/diensten.html', context)
 
 def fienanciering(request):
      return render(request, 'beneluxapp/fienanciering.html')
@@ -73,7 +76,9 @@ def van(request):
      return render(request, 'beneluxapp/van-offerte-tot-montage.html')
 
 def over(request):
-     return render(request, 'beneluxapp/over.html')
+     over_data = over_para.objects.all()
+     context = {'over_para': over_data}
+     return render(request, 'beneluxapp/over.html', context)
 
 def sendMessageToClient(request):
      if request.method == "POST":
@@ -120,4 +125,4 @@ def reqQuote(request):
                context = {"error": "false", 'msg': "Bedankt! Uw bericht is in goede staat ontvangen."}                              
           return render(request, 'beneluxapp/index.html', context)     
      else:
-          return render(request, 'beneluxapp/index.html')     
+          return render(request, 'beneluxapp/index.html')

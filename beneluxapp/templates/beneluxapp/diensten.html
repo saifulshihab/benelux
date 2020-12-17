@@ -40,39 +40,13 @@
 </div>
 <div class="container p-5 ftco-animate">
   <div class="row">
+    {% for d in diensten_para %}
     <div class="col-md-4 text-center mb-3">
-      <i class="dient_para_i fa fa-window-maximize"></i>
-      <h5 class="font-weight-bold">Dakkapel isolatie</h5>
-      <p class="text-justify">
-        Als u een dakkapel laat plaatsen is het van belang dat uw dakkapel wordt
-        voorzien van het juiste isolatiemateriaal aan zowel de binnenkant als de
-        buitenkant. De specialisten van Benelux dakkapellen
-      </p>
+      <i class="{{ d.icon }}"></i>
+      <h5 class="font-weight-bold">{{ d.title }}</h5>
+      <p class="text-justify">{{ d.desc }}</p>
     </div>
-    <div class="col-md-4 text-center mb-3">
-      <i class="dient_para_i fa fa-life-ring"></i>
-      <h5 class="font-weight-bold">Verschillende mogelijkheden</h5>
-      <p class="text-justify">
-        Bij het isoleren van een dakkapel zijn een aantal zaken belangrijk. Om
-        tocht en lekkages te voorkomen is het van belang dat u niet alleen de
-        binnenkant laat isoleren, maar ook de buitenkant laat voorzien van het
-        juiste isolatiemateriaal. Voor elk type dakkapel is een andere vorm van
-        toepassing. Zo wordt er bij een houten dakkapel onderscheid gemaakt
-        tussen warme en koude isolatie, maar is een kunststof dakkapel van
-        zichzelf al goed geïsoleerd.
-      </p>
-    </div>
-    <div class="col-md-4 text-center mb-3">
-      <i class="dient_para_i fa fa-comments"></i>
-      <h5 class="font-weight-bold">Adviserend gesprek</h5>
-      <p class="text-justify">
-        Voorafgaand aan de plaatsing van uw dakkapel bespreken onze adviseurs
-        met u welk type isolatie het beste aansluit bij uw wensen. Wilt u
-        standaard isolatiemateriaal? Of gaat u juist voor isolatiemateriaal met
-        een hoge waarde, omdat u extra wilt besparen op uw stookkosten? Wij
-        vertellen u graag meer, maar de keuze is uiteindelijk aan u!
-      </p>
-    </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
