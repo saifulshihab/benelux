@@ -16,3 +16,17 @@ class projects(models.Model):
             output_size =(img.height, img.width)
             img.thumbnail(output_size)
             img.save(self.p_image.path)
+
+class over_para(models.Model):
+    title = models.CharField(max_length=150, blank=False)
+    desc = models.CharField(max_length=1000, blank=False)
+    position = models.CharField(max_length=10)
+    def __str__(self):
+        return self.title
+
+class diensten_para(models.Model):
+    title = models.CharField(max_length=150, blank=False)
+    desc = models.CharField(max_length=1000, blank=False)
+    icon = models.CharField(max_length=50)
+    def __str__(self):
+        return self.title        
