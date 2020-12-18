@@ -111,8 +111,8 @@ def reqQuote(request):
           phone = request.POST['phone']
           shift = request.POST['shift']
           message = request.POST['message']
-          if(f_name == '' or l_name == '' or phone == '' or shift == '' or message == '' ):
-               context = {"error": "true", 'msg': "Please fill all input box correctly!"}
+          if(f_name == '' or l_name == '' or email == '' or phone == '' or shift == '' or message == '' ):
+               context = {"error": "true", 'msg': "Vul aub alle velden correct in!"}
           else:
                template = render_to_string('beneluxapp/successQuote.html', {'f_name': f_name, 'l_name': l_name, 'email': email, 'phone': phone, 'shift': shift, 'message': message})
                email = EmailMessage(
