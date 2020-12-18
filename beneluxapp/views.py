@@ -98,7 +98,7 @@ def sendMessageToClient(request):
                )
                email.fail_silently=False
                email.send()
-               context = {"error": "false", 'msg': "Thank you! You message has been received."}                              
+               context = {"error": "false", 'msg': "Bedankt, uw bericht is in goede orde ontvangen."}                              
           return render(request, 'beneluxapp/contact.html', context)     
      else:
           return render(request, 'beneluxapp/contact.html')     
