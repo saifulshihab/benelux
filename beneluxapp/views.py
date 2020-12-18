@@ -94,7 +94,7 @@ def sendMessageToClient(request):
                     'New message from customer',
                     template,
                     settings.EMAIL_HOST_USER,
-                    ['a.shakib.abubaker@gmail.com']
+                    ['info@beneluxdakkapellen.nl']
                )
                email.fail_silently=False
                email.send()
@@ -118,7 +118,7 @@ def reqQuote(request):
                     'Nieuwe offerte van bezoeker!',
                     template,
                     settings.EMAIL_HOST_USER,
-                    ['a.shakib.abubaker@gmail.com']
+                    ['info@beneluxdakkapellen.nl']
                )
                email.fail_silently=False
                email.send()
