@@ -91,7 +91,7 @@ def sendMessageToClient(request):
           else:
                template = render_to_string('beneluxapp/success.html', {'name': name, 'email': email, 'topic': topic, 'message': message})
                email = EmailMessage(
-                    'New message from customer',
+                    'Nieuwe bericht van een bezoeker',
                     template,
                     settings.EMAIL_HOST_USER,
                     ['info@beneluxdakkapellen.nl']
@@ -107,13 +107,14 @@ def reqQuote(request):
      if request.method == "POST":
           f_name = request.POST['f_name']
           l_name = request.POST['l_name']
+          email = request.POST['email']
           phone = request.POST['phone']
           shift = request.POST['shift']
           message = request.POST['message']
           if(f_name == '' or l_name == '' or phone == '' or shift == '' or message == '' ):
                context = {"error": "true", 'msg': "Please fill all input box correctly!"}
           else:
-               template = render_to_string('beneluxapp/successQuote.html', {'f_name': f_name, 'l_name': l_name, 'phone': phone, 'shift': shift, 'message': message})
+               template = render_to_string('beneluxapp/successQuote.html', {'f_name': f_name, 'l_name': l_name, 'email': email, 'phone': phone, 'shift': shift, 'message': message})
                email = EmailMessage(
                     'Nieuwe offerte van bezoeker!',
                     template,
