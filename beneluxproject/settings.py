@@ -134,8 +134,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'a.shakib.abubaker@gmail.com'
-EMAIL_HOST_PASSWORD = 'Habohali_2019'
+EMAIL_HOST_USER = 'info@beneluxdakkapellen.nl'
+EMAIL_HOST_PASSWORD = 'Batu1batu#'
 
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
