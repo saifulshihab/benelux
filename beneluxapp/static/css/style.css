@@ -3346,10 +3346,7 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
 .logo img {
-  width: 175px;
-  position: absolute;
-  left: -190px;
-  top: -40px;
+  width: 100px;
 }
 .btn-outline-warning {
   color: #5935dc;
@@ -13629,10 +13626,10 @@ input:checked + .slider:before {
   color: #0984e6;
   font-size: 10rem;
 }
-._calc_form_hide{
+._calc_form_hide {
   display: none;
 }
-#calc_form {   
+#calc_form {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #ddd;
