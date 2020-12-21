@@ -23,6 +23,7 @@ urlpatterns = [
     path('screens-in-het-overstek/', views.scree, name='screens-in-het-overstek'),
     path('van-offerte-tot-montage/', views.van, name='van-offerte-tot-montage'),
     path('sendMessage/', views.sendMessageToClient, name='sendMessage'),
+    path('_calc_form_submit/', views._calc_msgsend, name='_calc_form_submit'),
     path('reqQuote/', views.reqQuote, name='reqQuote'),
     path('over/', views.over, name='over'),
     

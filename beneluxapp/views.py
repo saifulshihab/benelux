@@ -123,7 +123,31 @@ def reqQuote(request):
                )
                email.fail_silently=False
                email.send()
-               context = {"error": "false", 'msg': "Bedankt! Uw bericht is in goede staat ontvangen."}                              
+               context = {"error": "false", 'msg': "Bedankt! Uw bericht is in goede staat ontvangen."}
           return render(request, 'beneluxapp/index.html', context)     
      else:
           return render(request, 'beneluxapp/index.html')
+
+def _calc_msgsend(request):
+     if request.method == "POST":
+          name = request.POST['name']
+          email = request.POST['email']
+          tel = request.POST['tel']
+          street = request.POST['street']
+          postcode = request.POST['postcode']
+          msg = request.POST['msg']
+
+          if(name == '' or email == '' or tel == '' or street == '' or postcode == '' or msg == '' ):
+               context = {"error": "true", 'msg': "Vul aub alle velden correct in!"}
+          else:
+               template = render_to_string('beneluxapp/cal_msg_quote.html', {'name': name, 'email': email, 'tel': tel, 'street': street, 'postcode': postcode, 'msg': msg})
+               email = EmailMessage(
+                    'Nieuwe offerte van bezoeker!',
+                    template,
+                    settings.EMAIL_HOST_USER,
+                    ['info@beneluxdakkapellen.nl']
+               )
+               email.fail_silently=False
+               email.send()
+               context = {"error": "false", 'msg': "Bedankt! Uw bericht is in goede staat ontvangen."}
+          return render(request, 'beneluxapp/prijsberekening.html', context)          
